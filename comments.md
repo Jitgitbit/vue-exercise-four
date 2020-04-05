@@ -32,4 +32,6 @@ firebase login
 
 firebase init
 
+npm run build
+
 firebase deploy
