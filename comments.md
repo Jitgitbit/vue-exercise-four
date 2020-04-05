@@ -27,3 +27,9 @@ vue init webpack vue-exercise-four
 npm install firebase --save
 
 npm install slugify --save
+
+firebase login
+
+firebase init
+
+firebase deploy
