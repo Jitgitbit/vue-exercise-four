@@ -1,6 +1,7 @@
 <template>
   <div class="edit-smoothie container">
-    <h2>Edit smoothie {{this.$route.params.smoothie_slug}}</h2>
+    <!-- <h2>Edit smoothie {{this.$route.params.smoothie_slug}}</h2> -->
+    <h2>Edit {{smoothie.title}} smoothie</h2>
   </div>
 </template>
 
@@ -10,7 +11,9 @@ import db from '@/firebase/init'
 export default {
   name:'EditSmoothie',
   data(){
-    return{}
+    return{
+      smoothie: null,
+    }
   },
   created(){
     let ref = db.collection('smoothies').where('slug', '==', this.$route.params.smoothie_slug)
@@ -18,6 +21,8 @@ export default {
     ref.get().then(snapshot => {
       snapshot.forEach(doc => {
         console.log(doc.data())
+        this.smoothie = doc.data()
+        this.smoothie.id = doc.id
       });
     })
   }
