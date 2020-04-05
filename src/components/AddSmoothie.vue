@@ -23,6 +23,9 @@
 </template>
 
 <script>
+import db from '@/firebase/init'
+import slugify from 'slugify'
+
 export default {
   name:'AddSmoothie',
   data(){
@@ -39,9 +42,17 @@ export default {
       console.log(this.title)
       if(this.title){
         this.feedback = null
+        // create a slug !! before going to db !!
+        this.slug = slugify(this.title, {
+          replacement: '-',
+          remove: /[$*_+~.()'"!\-:@]/g,
+          lower: true
+        })
+        console.log(this.slug)
         db.collection('smoothies').add({
           title: this.title,
           ingredients: this.ingredients,
+          slug: this.slug
         })
       }else{
         this.feedback = 'You must enter a smoothie title'
