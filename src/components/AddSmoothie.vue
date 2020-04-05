@@ -8,7 +8,7 @@
       </div>
       <div class="field add-ingredient">
         <label for="add-ingredient">Add an Ingredient:</label>
-        <input type="text" name='add-ingredient'>
+        <input type="text" name='add-ingredient' @keydown.tab='Adding' v-model='another'>
       </div>
       <div class="field center-align">
         <button class="btn pink">Add Smoothie</button>
@@ -22,7 +22,8 @@ export default {
   name:'AddSmoothie',
   data(){
     return{
-      title: null
+      title: null,
+      another: null,
     }
   },
   methods:{
