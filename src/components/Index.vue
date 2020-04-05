@@ -31,9 +31,11 @@ export default {
     deleteSmoothie(id){
       //delete doc from firestore
       db.collection('smoothies').doc(id).delete()
-      // this.smoothies = this.smoothies.filter(smoothie => {
-      //   return smoothie.id != id
-      // })
+      .then(() => {
+        this.smoothies = this.smoothies.filter(smoothie => {
+          return smoothie.id != id
+        })
+      })
     }
   },
   created(){
