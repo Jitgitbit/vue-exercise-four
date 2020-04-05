@@ -53,6 +53,10 @@ export default {
           title: this.title,
           ingredients: this.ingredients,
           slug: this.slug
+        }).then(() => {
+          this.$router.push({name:'Index'})             // Redirecting
+        }).catch(err => {
+          console.log(err)
         })
       }else{
         this.feedback = 'You must enter a smoothie title'
