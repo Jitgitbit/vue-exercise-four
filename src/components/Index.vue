@@ -33,6 +33,15 @@ export default {
         return smoothie.id != id
       })
     }
+  },
+  created(){
+    //fetch data from the firestore db
+    db.collection('smoothies').get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(doc.data(), `document id:`, doc.id)
+      })
+    })
   }
 }
 </script>
