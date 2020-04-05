@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 import 'firebase/analytics';
-import firestore from 'firebase/firestore';
+import 'firebase/firestore';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -19,4 +19,5 @@ firebase.firestore().settings({});
 
 firebase.analytics();
 
+// Export firestore db
 export default firebaseApp.firestore()
