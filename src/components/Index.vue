@@ -40,6 +40,9 @@ export default {
     .then(snapshot => {
       snapshot.forEach(doc => {
         console.log(doc.data(), `document id:`, doc.id)
+        let smoothie = doc.data()
+        smoothie.id = doc.id
+        this.smoothies.push(smoothie)
       })
     })
   }
