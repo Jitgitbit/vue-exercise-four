@@ -1,6 +1,6 @@
 <template>
   <div class="edit-smoothie container" v-if='smoothie'>
-    <!-- <h2>Edit smoothie {{this.$route.params.smoothie_slug}}</h2> -->
+    <!-- <h2>Edit smoothie {{ this.$route.params.smoothie_slug }}</h2> -->
     <h2>Edit {{smoothie.title}} smoothie</h2>
     <form @submit.prevent='editSmoothie'>
       <div class="field title">
