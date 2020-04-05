@@ -25,3 +25,5 @@ vue init webpack vue-exercise-four
 </script>
 
 npm install firebase --save
+
+npm install slugify --save

@@ -31,11 +31,21 @@ export default {
       another: null,
       ingredients:[],
       feedback: null,
+      slug: null,
     }
   },
   methods:{
     addSmoothie(){
       console.log(this.title)
+      if(this.title){
+        this.feedback = null
+        db.collection('smoothies').add({
+          title: this.title,
+          ingredients: this.ingredients,
+        })
+      }else{
+        this.feedback = 'You must enter a smoothie title'
+      }
     },
     addIng(){
       if(this.another){
