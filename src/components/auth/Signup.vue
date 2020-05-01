@@ -60,7 +60,7 @@ export default {
                 user_id: cred.user.uid
               })
             }).then(() => {
-              this.$router.push({name: 'GoogleMap'})
+              this.$router.push({name: 'Index'})
             })
             .catch(err => {
               console.log(err)
