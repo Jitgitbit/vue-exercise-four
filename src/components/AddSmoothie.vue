@@ -4,7 +4,7 @@
     <form @submit.prevent='addSmoothie'>
       <div class="field title">
         <label for="title">Smoothie Title:</label>
-        <input type="text" name='title' v-model='title'>
+        <input type="text" name='title' v-model='title' placeholder="changing any data will require you to be logged in">
       </div>
       <div class='field' v-for="(ing, index) in ingredients" :key='index'>
         <label for="ingredient">Ingredient:</label>
