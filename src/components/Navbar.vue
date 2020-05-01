@@ -22,10 +22,31 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   name:'Navbar',
   data(){
-    return{}
+    return{
+      user: null,
+    }
+  },
+  methods:{
+    logout(){
+      firebase.auth().signOut().then(() => {
+        this.$router.push({name: 'Login'})
+        console.log(`=========>> USER LOGGED OUT`)
+      })
+    }
+  },
+  created(){
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user){
+        this.user = user
+      }else{
+        this.user = null
+      }
+    })
   }
 }
 </script>
