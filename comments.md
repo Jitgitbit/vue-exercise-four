@@ -1,5 +1,7 @@
 vue init webpack vue-exercise-four
 
+npm run dev
+
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
 
@@ -35,3 +37,5 @@ firebase init
 npm run build
 
 firebase deploy
+
+npm install slugify
