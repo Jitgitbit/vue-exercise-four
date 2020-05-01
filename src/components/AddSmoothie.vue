@@ -26,6 +26,7 @@
 <script>
 import db from '@/firebase/init'
 import slugify from 'slugify'
+import firebase from 'firebase'
 
 export default {
   name:'AddSmoothie',
@@ -77,6 +78,36 @@ export default {
       this.ingredients = this.ingredients.filter(ingredient => {
         return ingredient != ing
       })
+    }
+  }
+}
+</script>
+<script>
+import firebase from 'firebase'
+
+export default {
+  name: 'Login',
+  data(){
+    return{
+      email: null,
+      password: null,
+      feedback: null,
+    }
+  },
+  methods:{
+    login(){
+      if(this.email && this.password){
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+        .then(cred => {
+          this.$router.push({name:'Index'})
+          console.log(`===========>> USER LOGGED IN:`,cred.user)
+        }).catch(err => {
+          this.feedback = err.message
+        })
+        this.feedback = null
+      }else{
+        this.feedback = 'Please fill in both fields'
+      }
     }
   }
 }
