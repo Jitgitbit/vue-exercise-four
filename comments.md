@@ -9,6 +9,16 @@ npm run dev
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
 
+____________________________________________________________________
+NOTE:
+for making sure all is well protecting the environments folder:
+add a line in .gitignore saying: firebase/
+git rm -r --cached src/firebase
+git add .
+git commit -m 'Removed the now ignored directory "firebase"'
+git push origin master
+_____________________________________________________________________
+
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
